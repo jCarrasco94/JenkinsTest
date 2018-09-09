@@ -6,8 +6,7 @@ pipeline{
 	stages{
 		stage('Building'){
 			steps{
-				bat 'nuget restore JenkinsTest.sln'
-				bat "\"${tool 'MSBuild'}\" JenkinsTest.sln /p:Configuration=Release /p:Platform=\"Any CPU\" /p:ProductVersion=1.0.0.${env.BUILD_NUMBER}"
+				bat 'gradle msbuild --info'
 			}
 			post{
 				success{
